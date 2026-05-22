@@ -12,7 +12,7 @@
     <div class="quiz-container">
         <div class="quiz-header">
             <span class="quiz-label">CYBERPUNK QUIZ</span>
-            <h3 class="quiz-question">問題3: (124 - 43) を2進数で計算してください。</h3>
+            <h3 class="quiz-question">Q3: (124 - 43) を2進数で計算してください。</h3>
         </div>
 
         <p class="quiz-description">
@@ -39,6 +39,10 @@
                 <span class="option-text">エ. 0101 1000</span>
             </label>
         </form>
+        
+        <button type="button" class="check-button" onclick="checkAnswer()">
+    		回答をチェック
+		</button>
 
         <details class="quiz-answer">
             <summary>解答と解説を見る</summary>
@@ -58,6 +62,29 @@
             <a class="nav-button nav-button-prev" href="question01.html">前の質問</a>
         </div>
     </div>
+    
+    <script>
+    function checkAnswer() {
+        const selected = document.querySelector(
+            'input[name="q1"]:checked'
+        );
+        const result = document.getElementById("result");
+
+        if (!selected) {
+            result.textContent = "選択肢を選んでください！";
+            result.style.color = "orange";
+            return;
+        }
+
+        if (selected.value === "3") {
+            result.textContent = ":o: 正解です！";
+            result.style.color = "#00FFCC";
+        } else {
+            result.textContent = ":x: 不正解です";
+            result.style.color = "#FF4D6D";
+        }
+    }
+</script>
 </body>
 
 </html>
