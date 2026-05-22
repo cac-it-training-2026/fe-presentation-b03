@@ -35,6 +35,11 @@
                 <span class="option-text">エ：1110 1011</span>
             </label>
         </form>
+        <button type="button" class="check-button" onclick="checkAnswer()">
+    回答をチェック
+</button>
+
+<p id="result" class="result-message"></p>
 
         <details class="quiz-answer">
             <summary>解答と解説を見る</summary>
@@ -59,6 +64,28 @@
             <a class="nav-button nav-button-next" href="question02.html">次の質問</a>
         </div>
     </div>
+    <script>
+    function checkAnswer() {
+        const selected = document.querySelector(
+            'input[name="q1"]:checked'
+        );
+        const result = document.getElementById("result");
+
+        if (!selected) {
+            result.textContent = "選択肢を選んでください！";
+            result.style.color = "orange";
+            return;
+        }
+
+        if (selected.value === "3") {
+            result.textContent = "⭕ 正解です！";
+            result.style.color = "#00ffcc";
+        } else {
+            result.textContent = "❌ 不正解です";
+            result.style.color = "#ff4d6d";
+        }
+    }
+</script>
 </body>
 
 </html>
