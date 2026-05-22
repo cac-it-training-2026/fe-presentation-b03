@@ -1,61 +1,59 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <title>HTML/CSS 4択問題</title>
-        <link rel="stylesheet" href="Cyberpunk.css" />
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="quiz-container">
-			<p>
-            <h3 class="quiz-question">
-            	問題3: ( 124 - 43 ) を2進数で計算してください。</h3>
-            	
-            	(補足)</br>
-				124 (10進数) ＝ 0111 1100 (2進数)</br>
-				43 (10進数) ＝ 0010 1011 (2進数)
-            </p>
 
-            <form class="quiz-options">
-                <label>
-                    <input type="radio" name="q1" value="1" />
-                    ア. 0101 0000
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="2" />
-                    イ. 1010 0111
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="3" />
-                    ウ. 0101 0001
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="4" />
-                    エ. 0101 1000
-                </label>
-            </form>
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML/CSS 4択問題</title>
+    <link rel="stylesheet" href="Cyberpunk.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-            <details class="quiz-answer">
-                <summary>解答と解説を見る</summary>
-                <div class="answer-content">
-                    <p class="correct-answer">
-                        <strong>正解：ウ. 0101 0001</strong>
-                    </p>
-                    <p class="explanation">
-                        <strong>
-							解説</br>
-							-43を2の補数に直すと、1101 0101
-							124 - 43(10進数) = 0111 1100 + 1101 0101(2進数) = 1 0101 0001
-							あふれた最上位ビットは切り捨てるので、答えは ウ.0101 0001。
-							0101 0001を10進数に直すと、64 + 16 + 1 = 81 で、結果が正しいことが確認できる。
-							
-									
-						</strong><br />
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <span class="quiz-label">CYBERPUNK QUIZ</span>
+            <h3 class="quiz-question">問題3: (124 - 43) を2進数で計算してください。</h3>
+        </div>
 
-                    </p>
-                </div>
-            </details>
-        </div>
-    </body>
+        <p class="quiz-description">補足: 124 (10進数) ＝ 0111 1100 (2進数) / 43 (10進数) ＝ 0010 1011 (2進数)</p>
+
+        <form class="quiz-options">
+            <label>
+                <input type="radio" name="q1" value="1" />
+                <span class="option-text">ア. 0101 0000</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="2" />
+                <span class="option-text">イ. 1010 0111</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="3" />
+                <span class="option-text">ウ. 0101 0001</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="4" />
+                <span class="option-text">エ. 0101 1000</span>
+            </label>
+        </form>
+
+        <details class="quiz-answer">
+            <summary>解答と解説を見る</summary>
+            <div class="answer-content">
+                <p class="correct-answer"><strong>正解：ウ. 0101 0001</strong></p>
+                <div class="explanation">
+                    <p><strong>解説</strong></p>
+                    <p>-43を2の補数に直すと、1101 0101</p>
+                    <p>124 - 43(10進数) = 0111 1100 + 1101 0101(2進数) = 1 0101 0001</p>
+                    <p>あふれた最上位ビットは切り捨てるので、答えは ウ.0101 0001。</p>
+                    <p>0101 0001を10進数に直すと、64 + 16 + 1 = 81 で、結果が正しいことが確認できる。</p>
+                </div>
+            </div>
+        </details>
+
+        <div class="nav-buttons">
+            <a class="nav-button nav-button-prev" href="question01.html">前の質問</a>
+        </div>
+    </div>
+</body>
+
 </html>

@@ -1,49 +1,64 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <title>HTML/CSS 4択問題</title>
-        <link rel="stylesheet" href="Cyberpunk.css" />
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="quiz-container">
-            <h3 class="quiz-question">Q2:10進数「-43」を、8ビットの2の補数表現で表したものはどれか。
-ここで、43の2進数表現は 0010 1011 とする。
-            <form class="quiz-options">
-                <label>
-                    <input type="radio" name="q1" value="1" /> ア：1010 1011
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="2" /> イ：1101 0100
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="3" /> ウ：1101 0101
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="4" /> エ：1110 1011
-                </label>
-            </form>
 
-            <details class="quiz-answer">
-                <summary>解答と解説を見る</summary>
-                <div class="answer-content">
-                    <p class="correct-answer">
-                        <strong>正解 ウ： 1101 0101</strong>
-                    </p>
-                    <p class="explanation">
-                        <strong>解説：</strong><br />
-                       <p>負の数の「2の補数表現」は、以下の2つのステップで求めることができます。</p>
-                       <p>1. 元のビットを反転させる（0と1を入れ替える）<br>
-                       「+43」である 0010 1011 のすべてのビットを反転させます。<br>
-                       0010 1011 → 1101 0100 （これは「1の補数」と呼ばれます）</p>
-                       <p>2. 最後に「1」を足す<br>
-                       反転させた値に 1 を足します。<br>
-                       1101 0100 + 1 = 1101 0101</p>
-                       <p>したがって、正解は ウ です。</p>
-                    </p>
-                </div>
-            </details>
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML/CSS 4択問題</title>
+    <link rel="stylesheet" href="Cyberpunk.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <span class="quiz-label">CYBERPUNK QUIZ</span>
+            <h3 class="quiz-question">Q2: 10進数「-43」を、8ビットの2の補数表現で表したものはどれか。</h3>
         </div>
-    </body>
+
+        <p class="quiz-description">ここで、43の2進数表現は 0010 1011 とする。</p>
+
+        <form class="quiz-options">
+            <label>
+                <input type="radio" name="q1" value="1" />
+                <span class="option-text">ア：1010 1011</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="2" />
+                <span class="option-text">イ：1101 0100</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="3" />
+                <span class="option-text">ウ：1101 0101</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="4" />
+                <span class="option-text">エ：1110 1011</span>
+            </label>
+        </form>
+
+        <details class="quiz-answer">
+            <summary>解答と解説を見る</summary>
+            <div class="answer-content">
+                <p class="correct-answer"><strong>正解 ウ：1101 0101</strong></p>
+                <div class="explanation">
+                    <p><strong>解説：</strong></p>
+                    <p>負の数の「2の補数表現」は、以下の2つのステップで求めることができます。</p>
+                    <p>1. 元のビットを反転させる（0と1を入れ替える）<br>
+                        「+43」である 0010 1011 のすべてのビットを反転させます。<br>
+                        0010 1011 → 1101 0100 （これは「1の補数」と呼ばれます）</p>
+                    <p>2. 最後に「1」を足す<br>
+                        反転させた値に 1 を足します。<br>
+                        1101 0100 + 1 = 1101 0101</p>
+                    <p>したがって、正解は ウ です。</p>
+                </div>
+            </div>
+        </details>
+
+        <div class="nav-buttons">
+            <a class="nav-button nav-button-prev" href="question00.html">前の質問</a>
+            <a class="nav-button nav-button-next" href="question02.html">次の質問</a>
+        </div>
+    </div>
+</body>
+
 </html>
