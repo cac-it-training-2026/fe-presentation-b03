@@ -1,11 +1,28 @@
 /* 全体のフォント設定 */
 body {
-    font-family:
-        "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-        Meiryo, sans-serif;
-    color: #333;
-    padding: 20px;
-    background-color: #f4f7f6;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    color: #e0f7ff;
+    padding: 30px;
+    background-color: #05060a;
+    background-image: radial-gradient(circle at top left, rgba(77, 231, 255, 0.12), transparent 25%),
+        radial-gradient(circle at top right, rgba(255, 43, 157, 0.14), transparent 20%),
+        linear-gradient(180deg, #08101f 0%, #05060a 40%, #030207 100%);
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    opacity: 0.25;
+}
+
+::selection {
+    background: rgba(46, 204, 255, 0.35);
 }
 
 .menu-container {
@@ -39,23 +56,58 @@ body {
 
 /* 問題の枠組み */
 .quiz-container {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 24px;
-    max-width: 600px;
-    margin: 0 auto 24px auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background: rgba(5, 12, 24, 0.95);
+    border: 1px solid rgba(38, 215, 255, 0.26);
+    border-radius: 20px;
+    padding: 28px;
+    max-width: 720px;
+    margin: 0 auto 32px auto;
+    box-shadow: 0 0 40px rgba(37, 157, 255, 0.16), 0 0 80px rgba(255, 35, 155, 0.12);
+    position: relative;
+    overflow: hidden;
 }
 
-/* 問題文 */
+.quiz-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(255, 20, 147, 0.12), transparent 18%),
+        radial-gradient(circle at bottom left, rgba(42, 255, 229, 0.12), transparent 18%);
+    pointer-events: none;
+}
+
+.quiz-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.quiz-label {
+    display: inline-block;
+    letter-spacing: 0.24em;
+    color: #7df1ff;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
 .quiz-question {
-    margin-top: 0;
-    font-size: 1.1rem;
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    margin: 0;
+    font-size: 1.55rem;
+    color: #f5f9ff;
+    text-shadow: 0 0 18px rgba(37, 157, 255, 0.55);
+    border-bottom: 2px solid rgba(67, 220, 255, 0.45);
+    padding-bottom: 12px;
+}
+
+.quiz-description {
+    color: #b7d8ff;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.08);
 }
 
 /* 選択肢のレイアウト */
@@ -127,4 +179,93 @@ body {
 .explanation {
     margin-bottom: 0;
     line-height: 1.6;
+}
+
+.binary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 28px;
+    background: rgba(6, 14, 30, 0.78);
+    box-shadow: inset 0 0 0 1px rgba(35, 155, 255, 0.12);
+}
+
+.binary-table th,
+.binary-table td {
+    border: 1px solid rgba(68, 192, 255, 0.12);
+    padding: 16px 14px;
+    text-align: center;
+    color: #e5f7ff;
+}
+
+.binary-table th {
+    background: rgba(56, 135, 255, 0.18);
+    color: #a6f3ff;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.binary-table tbody tr {
+    transition: background 0.22s ease;
+}
+
+.binary-table tbody tr:hover {
+    background: rgba(42, 192, 255, 0.08);
+}
+
+.binary-table tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.binary-table td {
+    font-family: "Roboto Mono", "Courier New", monospace;
+    font-size: 0.98rem;
+}
+
+.binary-table td:first-child {
+    color: #76d6ff;
+}
+
+.binary-input {
+    width: 100%;
+    max-width: 120px;
+    padding: 12px 14px;
+    border: 1px solid rgba(63, 213, 255, 0.45);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1rem;
+    background: rgba(13, 24, 44, 0.92);
+    color: #d4f7ff;
+    box-shadow: inset 0 0 12px rgba(69, 207, 255, 0.14);
+}
+
+.binary-input:focus {
+    outline: none;
+    border-color: #8bf1ff;
+    box-shadow: 0 0 18px rgba(51, 235, 255, 0.28);
+    background: rgba(10, 18, 34, 1);
+}
+
+.check-button {
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #00f2ff 0%, #ff07c7 100%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    color: #05060a;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 18px rgba(0, 242, 255, 0.18), 0 0 28px rgba(255, 7, 199, 0.14);
+}
+
+.check-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 22px rgba(0, 242, 255, 0.28), 0 0 34px rgba(255, 7, 199, 0.2);
+}
+
+.result-message {
+    margin-top: 18px;
+    min-height: 24px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
