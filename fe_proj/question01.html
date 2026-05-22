@@ -8,24 +8,20 @@
     </head>
     <body>
         <div class="quiz-container">
-            <h3 class="quiz-question">問題1: HTMLの正式名称はどれですか？</h3>
-
+            <h3 class="quiz-question">Q2:10進数「-43」を、8ビットの2の補数表現で表したものはどれか。
+ここで、43の2進数表現は 0010 1011 とする。
             <form class="quiz-options">
                 <label>
-                    <input type="radio" name="q1" value="1" /> 1. High Text
-                    Markup Language
+                    <input type="radio" name="q1" value="1" /> ア：1010 1011
                 </label>
                 <label>
-                    <input type="radio" name="q1" value="2" /> 2. Hyper Text
-                    Markup Language
+                    <input type="radio" name="q1" value="2" /> イ：1101 0100
                 </label>
                 <label>
-                    <input type="radio" name="q1" value="3" /> 3. Hyper Tool
-                    Multi Language
+                    <input type="radio" name="q1" value="3" /> ウ：1101 0101
                 </label>
                 <label>
-                    <input type="radio" name="q1" value="4" /> 4. Hyper Text
-                    Make Language
+                    <input type="radio" name="q1" value="4" /> エ：1110 1011
                 </label>
             </form>
 
@@ -33,12 +29,18 @@
                 <summary>解答と解説を見る</summary>
                 <div class="answer-content">
                     <p class="correct-answer">
-                        <strong>正解：2. Hyper Text Markup Language</strong>
+                        <strong>正解 ウ： 1101 0101</strong>
                     </p>
                     <p class="explanation">
                         <strong>解説：</strong><br />
-                        HTMLは「Hyper Text Markup
-                        Language（ハイパーテキスト・マークアップ・ランゲージ）」の略です。Webページの構造を作成するための言語として使用されます。
+                       <p>負の数の「2の補数表現」は、以下の2つのステップで求めることができます。</p>
+                       <p>1. 元のビットを反転させる（0と1を入れ替える）<br>
+                       「+43」である 0010 1011 のすべてのビットを反転させます。<br>
+                       0010 1011 → 1101 0100 （これは「1の補数」と呼ばれます）</p>
+                       <p>2. 最後に「1」を足す<br>
+                       反転させた値に 1 を足します。<br>
+                       1101 0100 + 1 = 1101 0101</p>
+                       <p>したがって、正解は ウ です。</p>
                     </p>
                 </div>
             </details>
