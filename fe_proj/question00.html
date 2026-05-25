@@ -1,46 +1,116 @@
 <!doctype html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <title>HTML/CSS 4択問題</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="quiz-container">
-            <h3 class="quiz-question">問題1: HTMLの正式名称はどれですか？</h3>
 
-            <form class="quiz-options">
-                <label>
-                    <input type="radio" name="q1" value="1" /> 1. High Text
-                    Markup Language
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="2" /> 2. Hyper Text
-                    Markup Language
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="3" /> 3. Hyper Tool
-                    Multi Language
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="4" /> 4. Hyper Text
-                    Make Language
-                </label>
-            </form>
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML/CSS 4択問題</title>
+    <link rel="stylesheet" href="Cyberpunk.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-            <details class="quiz-answer">
-                <summary>解答と解説を見る</summary>
-                <div class="answer-content">
-                    <p class="correct-answer">
-                        <strong>正解：2. Hyper Text Markup Language</strong>
-                    </p>
-                    <p class="explanation">
-                        <strong>解説：</strong><br />
-                        HTMLは「Hyper Text Markup
-                        Language（ハイパーテキスト・マークアップ・ランゲージ）」の略です。Webページの構造を作成するための言語として使用されます。
-                    </p>
-                </div>
-            </details>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <span class="quiz-label">CYBERPUNK QUIZ</span>
+            <h3 class="quiz-question">問題: 10進数を4ビット2進数に変換してください</h3>
         </div>
-    </body>
+
+        <p class="quiz-description">次の表の空欄に、対応する2進数を4桁で入力してください。</p>
+
+        <table class="binary-table">
+            <thead>
+                <tr>
+                    <th>10進数</th>
+                    <th>2進数</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>0000</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0001</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>0010</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>0011</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><input id="input4" class="binary-input" type="text" maxlength="4" placeholder="入力" /></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>0101</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>0110</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><input id="input7" class="binary-input" type="text" maxlength="4" placeholder="入力" /></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>1000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id="check-button" class="check-button" type="button">回答を確認</button>
+        <p id="result" class="result-message"></p>
+
+        <div class="nav-buttons">
+            <a class="nav-button nav-button-next" href="question01.html">次の質問</a>
+        </div>
+    </div>
+
+    <script>
+        const checkButton = document.getElementById("check-button");
+        const input4 = document.getElementById("input4");
+        const input7 = document.getElementById("input7");
+        const result = document.getElementById("result");
+
+        function normalize(value) {
+            return value.trim().replace(/[^01]/g, "");
+        }
+
+        function validateBinary(value) {
+            return /^[01]{4}$/.test(value);
+        }
+
+        checkButton.addEventListener("click", () => {
+            const answer4 = normalize(input4.value);
+            const answer7 = normalize(input7.value);
+
+            if (!validateBinary(answer4) || !validateBinary(answer7)) {
+                result.textContent = "4桁の2進数（0と1のみ）を入力してください。";
+                result.style.color = "#e74c3c";
+                return;
+            }
+
+            const isCorrect4 = answer4 === "0100";
+            const isCorrect7 = answer7 === "0111";
+
+            if (isCorrect4 && isCorrect7) {
+                result.textContent = "正解です！4→0100、7→0111";
+                result.style.color = "#27ae60";
+            } else {
+                const wrong = [];
+                if (!isCorrect4) wrong.push("4");
+                if (!isCorrect7) wrong.push("7");
+                result.textContent = `${wrong.join("、")} の答えが違います。もう一度確認してください。`;
+                result.style.color = "#e74c3c";
+            }
+        });
+    </script>
+</body>
+
 </html>

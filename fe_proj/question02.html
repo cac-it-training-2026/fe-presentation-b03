@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML/CSS 4択問題</title>
+    <link rel="stylesheet" href="Cyberpunk.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <span class="quiz-label">CYBERPUNK QUIZ</span>
+            <h3 class="quiz-question">Q3: (124 - 43) を2進数で計算してください。</h3>
+        </div>
+
+        <p class="quiz-description">
+			補足:</br> 
+			124 (10進数) ＝ 0111 1100 (2進数)</br>
+			 43 (10進数) ＝ 0010 1011 (2進数)</br>
+		</p>
+
+        <form class="quiz-options">
+            <label>
+                <input type="radio" name="q1" value="1" />
+                <span class="option-text">ア. 0101 0000</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="2" />
+                <span class="option-text">イ. 1010 0111</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="3" />
+                <span class="option-text">ウ. 0101 0001</span>
+            </label>
+            <label>
+                <input type="radio" name="q1" value="4" />
+                <span class="option-text">エ. 0101 1000</span>
+            </label>
+        </form>
+        
+        <button type="button" class="check-button" onclick="checkAnswer()">
+    		回答をチェック
+		</button>
+		
+		<p id="result" class="result-message"></p>
+
+        <details class="quiz-answer">
+            <summary>解答と解説を見る</summary>
+            <div class="answer-content">
+                <p class="correct-answer"><strong>正解：ウ. 0101 0001</strong></p>
+                <div class="explanation">
+                    <p><strong>解説</strong></p>
+                    <p>-43を2の補数に直すと、1101 0101 </p>
+                    <p>124 - 43(10進数) = 0111 1100 + 1101 0101(2進数) = 1 0101 0001 </p>
+                    <p>あふれた最上位ビットは切り捨てるので、答えは ウ.0101 0001。</p>
+                    <p>0101 0001 を10進数に直すと、64 + 16 + 1 = 81 で、結果が正しいことが確認できる。</p>
+                </div>
+            </div>
+        </details>
+
+        <div class="nav-buttons">
+            <a class="nav-button nav-button-prev" href="question01.html">前の質問</a>
+        </div>
+    </div>
+    
+    <script>
+    function checkAnswer() {
+        const selected = document.querySelector(
+            'input[name="q1"]:checked'
+        );
+        const result = document.getElementById("result");
+
+        if (!selected) {
+            result.textContent = "選択肢を選んでください！";
+            result.style.color = "orange";
+            return;
+        }
+
+        if (selected.value === "3") {
+            result.textContent = ":o: 正解です！";
+            result.style.color = "#00FFCC";
+        } else {
+            result.textContent = ":x: 不正解です";
+            result.style.color = "#FF4D6D";
+        }
+    }
+</script>
+</body>
+
+</html>
